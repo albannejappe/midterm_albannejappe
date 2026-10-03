@@ -6,16 +6,14 @@ kernelspec:
 ---
 
 ## Which parameters influence the image type (weight) ?
-explication des différentes séquences (spin echo, gradient echo, theta...) qui donnent chaque type d'image
+explication des différentes séquences (spin echo, gradient echo, theta...) qui donnent chaque type d'image ajout des schéma de la séquence
 code?
 
 ## Some examples
 exemples (plusieurs! de différentes parties du corps) de chaque type d'image en expliquant pourquoi telle image est T1-weighted...
 (pas seulement en se basant sur TE et TR, mais plus avec l'aspect des différents tissus)
 figure interactive: en passant la souris sur une structure ça nous dit ce que c'est, son T1 et T2 (jsp si c'est possible de faire ça)
-
-## Recap
-tableau recap TE/TR
+ajout des images
 
 
 # Image Types & Weightings in MRI
