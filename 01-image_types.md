@@ -70,7 +70,6 @@ Gradient Echo sequences replace the 180° refocusing pulse with gradient reversa
 $$S_{\text{GRE}} \propto \frac{\text{PD} \cdot \left(1 - e^{-TR / T_1}\right) \sin\theta}{1 - e^{-TR / T_1}\cos\theta} \cdot e^{-TE / T_2^*}$$
 
 ```{code-cell} python
-:tags: [hide-input]  # Optionnel : masque le code par défaut pour ne laisser que la figurepython
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -122,7 +121,6 @@ Extrait de code**Interactive Tissue Inspector (Tool Concept)**
 If you wish to embed an interactive hover tooltip in MyST, you can use Plotly or Altair in Python code blocks.
 
 ```{code-cell} python
-:tags: [hide-input]  # Optionnel : masque le code par défaut pour ne laisser que la figurepython
 import plotly.express as px
 import pandas as pd
 
