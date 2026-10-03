@@ -5,15 +5,14 @@ kernelspec:
   display_name: Python 3
 ---
 
-## Which parameters influence the image type (weight) ?
-explication des différentes séquences (spin echo, gradient echo, theta...) qui donnent chaque type d'image ajout des schéma de la séquence
-code?
-
-## Some examples
-exemples (plusieurs! de différentes parties du corps) de chaque type d'image en expliquant pourquoi telle image est T1-weighted...
-(pas seulement en se basant sur TE et TR, mais plus avec l'aspect des différents tissus)
-figure interactive: en passant la souris sur une structure ça nous dit ce que c'est, son T1 et T2 (jsp si c'est possible de faire ça)
-ajout des images
+A ajouter:
+- animation pour representer T1 et T2 (peut etre une seule animation pour les 2)
+- revoir le tableau des valeurs (un short T1 est très différent d'un short T2)
+- schéma des séquences
+- explication des codes générés
+- explication physique (interaction molécule) de T1 et T2 selon les tissus
+- ajout des images interactives: en passant la souris sur une structure ça nous dit ce que c'est, son T1 et T2
+- ajouter bone,... (toutes les catégories du tableau) dans le dernier petit graphe (T1/T2)
 
 
 ## Image Types & Weightings in MRI
