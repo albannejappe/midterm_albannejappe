@@ -1,7 +1,7 @@
 ---
 title: T2 and T2*
 kernelspec:
-  name: base
+  name: python3
   display_name: Python 3
 ---
 
