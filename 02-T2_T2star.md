@@ -8,7 +8,8 @@ kernelspec:
 A ajouter:
 - exemples des artefacts causés par T2*
 - page d'intro + conclusion
-- ref image T2* decay : Toffanin, Renato & Guglielmi, Giuseppe & Cova, Maria. (2011). Fast MRI Methods for the Clinical Evaluation of Skeletal Disorders. 10.5772/30145. 
+- ref image T2* decay : Toffanin, Renato & Guglielmi, Giuseppe & Cova, Maria. (2011). Fast MRI Methods for the Clinical Evaluation of Skeletal Disorders. 10.5772/30145.
+- enlever la courbe image (le graphe c'est la meme chose)
 
 
 # T2 and T2* Relaxation Physics
