@@ -56,17 +56,17 @@ project:
       # a duplicate of the figure. Add new chapters here as well as in `toc`.
       articles:
         - file: index.md
+        - file: 01-image_types.md
+        - file: 02-T2_T2star.md
         #- file: 01-getting-started.md
         #- file: 02-interactive-figures.md
-        - file: 01-image_types.md
-        - file: 02-T2_T2*.md
 
   toc:
     - file: index.md
+    - file: 01-image_types.md
+    - file: 02-T2_T2star.md
     #- file: 01-getting-started.md
     #- file: 02-interactive-figures.md
-    - file: 01-image_types.md
-    - file: 02-T2_T2*.md
     # Notebooks must appear in the toc for MyST to build (and execute) them --
     # otherwise `:::{figure} #label` has nothing to embed and silently renders empty.
     # `hidden: true` keeps it built and referenceable without publishing it as a
