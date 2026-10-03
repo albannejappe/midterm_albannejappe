@@ -7,23 +7,8 @@ kernelspec:
 
 A ajouter:
 - exemples des artefacts causés par T2*
-- ajouter l'incrustation vidéo ou au moins le lien de la vidéo
-- petit résumé sur l'analyse des paroles de la chanson
-- explication du code généré
 - page d'intro + conclusion
-
-## What is T2* ?
-définition de T2*
-comment ça influence en vrai les images ?
-code
-
-## T2* song
-chanson (lien ou vidéo carrément si c'est possible)
-paroles + analyse
-code de l'analyse
-
-## Recap
-tableau récap des différences de T2 et T2*
+- ref image T2* decay : Toffanin, Renato & Guglielmi, Giuseppe & Cova, Maria. (2011). Fast MRI Methods for the Clinical Evaluation of Skeletal Disorders. 10.5772/30145. 
 
 
 # T2 and T2* Relaxation Physics
@@ -47,8 +32,6 @@ $$\frac{1}{T_2^*} = \frac{1}{T_2} + \frac{1}{T_{2,\text{inhom}}}$$
 
 Since $T_{2,\text{inhom}} > 0$, $T_2^*$ is always significantly shorter than $T_2$ ($T_2^* < T_2$).
 
-<Image src="image_agent_tag_9245813729334519079" alt="Diagram showing T2 and T2* decay curves over time" caption="Comparison of T2 vs T2* decay curves" />
-
 ---
 
 ### How T2* Influences Real MRI Images
@@ -57,7 +40,10 @@ Since $T_{2,\text{inhom}} > 0$, $T_2^*$ is always significantly shorter than $T_
 * **Susceptibility Artifacts:** Tissues with iron, blood breakdown products (hemosiderin, deoxyhemoglobin), or interfaces between air and tissue create localized magnetic field gradients, causing fast signal loss ("blooming artifacts").
 * **Functional MRI (fMRI):** Blood Oxygen Level Dependent (BOLD) fMRI relies entirely on local $T_2^*$ changes caused by paramagnetism in blood flow.
 
-<Image src="image_agent_tag_92458137293345190602" alt="Comparison between Gradient Echo and Spin Echo MRI sequences" caption="GE (T2*) vs SE (T2) sensitivity" />
+:::{figure} images/T2_T2star.png
+:label: fig-t2-decay
+Diagram showing T2 and T2* decay curves over time
+:::
 
 ---
 
@@ -94,21 +80,26 @@ plt.grid(True, alpha=0.3)
 plt.legend()
 plt.show()
 ```
+The curve models a signal loss using $M_{xy}(t) = M_0 e^{-t/T_2^{(*)}}$. The dashed red curve ($T_2^*$) drops below the 37% signal mark significantly faster than the solid blue curve ($T_2$), demonstrating why Gradient Echo acquisitions require much shorter Echo Times ($TE$).
 
 ### The $T_2^*$ Song: "Twinkle, Twinkle, $T_2^*$"
 
 To help memorize the physical concepts governing spin dephasing and magnetic field inhomogeneity, listen to this scientific adaptation of Twinkle, Twinkle, Little Star written by Greg Crowther and performed by Science Groove.
+
+```{youtube} [https://www.youtube.com/watch?v=uu7Ph25EhLQ](https://www.youtube.com/watch?v=uu7Ph25EhLQ)```
 
 # Song Performance
 Lyrics & Physics Breakdown
 
 |Song Lyrics|Physical Concept & Meaning|
 |---|---|
-|Twinkle, twinkle, $T_2^$,How I wonder what you are!|Introduction to $T_2^*$ as an observed relaxation rate in NMR/MRI.|
-|XY signal soon decays;Why do spins go out of phase?|Explains that transverse signal decay in the $XY$ plane is directly caused by phase coherence loss among precessing spins.|
-|Twinkle, twinkle, $T_2^$,Something pulls those spins apart. |Field inhomogeneities cause neighboring spins to precess at slightly different Larmor frequencies, pulling vector phases apart. |
-|Spin-spin crosstalk sets $T_2$,But by then $T_2^$ is through.|Pure molecular $T_2$ interaction takes longer, whereas static inhomogeneity causes $T_2^*$ to decay much faster.|
-|A brief duration here is sealed; By an inhomogeneous field.| The short lifespan of $T_2^*$ signal decay is dictated by static field non-uniformities ($\Delta B_0$).|
+|Twinkle, twinkle, $T_2^*$, How I wonder what you are!|Introduction to $T_2^*$ as an observed relaxation rate in NMR/MRI.|
+|XY signal soon decays, Why do spins go out of phase?|Explains that transverse signal decay in the $XY$ plane is directly caused by phase coherence loss among precessing spins.|
+|Twinkle, twinkle, $T_2^*$, Something pulls those spins apart. |Field inhomogeneities cause neighboring spins to precess at slightly different Larmor frequencies, pulling vector phases apart. |
+|Spin-spin crosstalk sets $T_2$, But by then $T_2^*$ is through.|Pure molecular $T_2$ interaction takes longer, whereas static inhomogeneity causes $T_2^*$ to decay much faster.|
+|A brief duration here is sealed, By an inhomogeneous field.| The short lifespan of $T_2^*$ signal decay is dictated by static field non-uniformities ($\Delta B_0$).|
+
+The song cleverly transforms a complex physical concept into an effective musical mnemonic, reminding us that the rapid signal decay in $T_2^*$ is the direct footprint of magnetic field inhomogeneities driving spin dephasing.
 
 # Code Analysis: Quantifying Dephasing Rates from Song Concepts
 This Python snippet models how individual spin vectors spread out in phase over time under fixed field inhomogeneities, reproducing the physical process described in the song.
@@ -142,6 +133,7 @@ plt.grid(True, alpha=0.3)
 plt.legend()
 plt.show()
 ```
+This curve simulates 100 distinct proton spins experiencing slightly different magnetic micro-environments ($\Delta B_0$). Each spin precesses at a slightly different Larmor frequency ($\Delta f$), accumulating phase differences $\phi(t) = 2\pi \Delta f t$. Vector summation shows that phase cancellation reduces net transverse magnetization to zero long before intrinsic $T_2$ spin-spin exchange completes.
 
 # Summary: Comparing $T_2$ and $T_2^*$
 
