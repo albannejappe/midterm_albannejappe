@@ -121,7 +121,7 @@ Visual identification of weighting relies on checking high-signal (bright) vs. l
 Extrait de code**Interactive Tissue Inspector (Tool Concept)**
 If you wish to embed an interactive hover tooltip in MyST, you can use Plotly or Altair in Python code blocks.
 
-`````{code-cell} python
+```{code-cell} python
 :tags: [hide-input]  # Optionnel : masque le code par défaut pour ne laisser que la figurepython
 import plotly.express as px
 import pandas as pd
