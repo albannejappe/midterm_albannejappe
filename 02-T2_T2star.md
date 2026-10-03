@@ -5,6 +5,13 @@ kernelspec:
   display_name: Python 3
 ---
 
+A ajouter:
+- exemples des artefacts causés par T2*
+- ajouter l'incrustation vidéo ou au moins le lien de la vidéo
+- petit résumé sur l'analyse des paroles de la chanson
+- explication du code généré
+- page d'intro + conclusion
+
 ## What is T2* ?
 définition de T2*
 comment ça influence en vrai les images ?
