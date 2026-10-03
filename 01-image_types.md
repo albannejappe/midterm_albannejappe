@@ -1,7 +1,7 @@
 ---
 title: 'Image types: T1, T2, T2*, PD'
 kernelspec:
-  name: base
+  name: python3
   display_name: Python 3
 ---
 
@@ -117,7 +117,7 @@ Visual identification of weighting relies on checking high-signal (bright) vs. l
 * T2-Weighted: Joint fluid / effusion is bright white; muscle and meniscus are intermediate to dark. Ideal for highlighting fluid/edema (pathology).
 * T2*-Weighted (Gradient Echo): Highly sensitive to susceptibility artifacts (e.g., microbleeds, iron deposits, joint hardware).
 
-Extrait de code**Interactive Tissue Inspector (Tool Concept)**
+**Interactive Tissue Inspector (Tool Concept)**
 If you wish to embed an interactive hover tooltip in MyST, you can use Plotly or Altair in Python code blocks.
 
 ```{code-cell} python
