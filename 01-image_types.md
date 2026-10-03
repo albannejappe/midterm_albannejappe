@@ -16,13 +16,13 @@ figure interactive: en passant la souris sur une structure ça nous dit ce que c
 ajout des images
 
 
-# Image Types & Weightings in MRI
+## Image Types & Weightings in MRI
 
-In Magnetic Resonance Imaging (MRI), contrast between tissues is primarily determined by intrinsic magnetic relaxation properties (**T1**, **T2**, and **T2*** times) and proton density (**PD**). By adjusting scanner parameters such as Echo Time ($TE$), Repetition Time ($TR$), and flip angle ($\theta$), we can "weight" the image toward a specific physical property.
+In Magnetic Resonance Imaging (MRI), contrast between tissues is primarily determined by intrinsic magnetic relaxation properties (**T1**, **T2**, and **T2*** times) and proton density (**PD**). By adjusting scanner parameters such as Echo Time (TE), Repetition Time (TR), and flip angle ($\theta$), we can "weight" the image toward a specific physical property.
 
 ---
 
-## What are T1 and T2?
+# What are T1 and T2?
 
 ### Fundamental Definitions
 
@@ -33,7 +33,6 @@ T1 and T2 are intrinsic properties of materials and tissues. They are times expr
 $$M_z(t) = M_0 \left(1 - e^{-t / T_1}\right)$$
 
 * **T2 Relaxation (Spin-Spin / Transverse Relaxation):** The process by which transverse magnetization ($M_{xy}$) decays due to spin phase coherence loss caused by microscopic magnetic interactions between neighboring nuclei. $T_2$ is defined as the time required for $M_{xy}$ to drop to **37%** of its initial magnitude.
-<!--* **T2* Relaxation:** Transverse decay caused by a combination of pure $T_2$ spin-spin relaxation **plus magnetic field inhomogeneities** ($\Delta B_0$). Always shorter than $T_2$ ($T_2^* < T_2$). -->
 
 $$M_{xy}(t) = M_0 e^{-t / T_2}$$
 
@@ -52,7 +51,7 @@ $$M_{xy}(t) = M_0 e^{-t / T_2}$$
 
 ## Which Parameters Influence Image Weighting?
 
-Image contrast is selected by manipulating sequence timing ($TR$, $TE$) and excitation parameters (flip angle $\theta$, refocusing pulses).
+Image contrast is selected by manipulating sequence timing (TR, TE) and excitation parameters (flip angle $\theta$, refocusing pulses).
 
 ### Spin Echo (SE) Sequences
 
@@ -64,13 +63,14 @@ $$S_{\text{SE}} \propto \text{PD} \cdot \left(1 - e^{-TR / T_1}\right) \cdot e^{
 * **T2-Weighted (T2w):** Long $TR$ (eliminates $T_1$ weighting by allowing full longitudinal recovery) + Long $TE$ (maximizes differences in $T_2$ decay rates).
 * **Proton Density-Weighted (PDw):** Long $TR$ (minimizes $T_1$ weighting) + Short $TE$ (minimizes $T_2$ weighting).
 
-### Gradient Echo (GRE) Sequences & Flip Angle ($\theta$)
+### Gradient Echo (GE) Sequences & Flip Angle ($\theta$)
 
 Gradient Echo sequences replace the 180° refocusing pulse with gradient reversals and low flip angles ($\theta < 90^\circ$). Because field inhomogeneities are not refocused, decay is governed by $T_2^*$:
 
 $$S_{\text{GRE}} \propto \frac{\text{PD} \cdot \left(1 - e^{-TR / T_1}\right) \sin\theta}{1 - e^{-TR / T_1}\cos\theta} \cdot e^{-TE / T_2^*}$$
 
-```python
+```{code-cell} python
+:tags: [hide-input]  # Optionnel : masque le code par défaut pour ne laisser que la figurepython
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -100,27 +100,29 @@ plt.show()
 
 Visual identification of weighting relies on checking high-signal (bright) vs. low-signal (dark) reference tissues rather than looking at scanner headers alone.
 
-1. Brain MRIT1-Weighted:
-CSF appears dark (very long $T_1$, slow signal recovery).
-White Matter appears bright (short $T_1$, rapid recovery due to myelin fat).
-Grey Matter is intermediate (darker than WM).
+1. Brain MRI
+* T1-Weighted:
+- CSF appears dark (very long $T_1$, slow signal recovery).
+- White Matter appears bright (short $T_1$, rapid recovery due to myelin fat).
+- Grey Matter is intermediate (darker than WM).
 
-T2-Weighted:
-CSF appears hyperintense (bright) (long $T_2$, slow transverse signal decay).
-White Matter appears darker than Grey Matter.
+* T2-Weighted:
+- CSF appears hyperintense (bright) (long $T_2$, slow transverse signal decay).
+- White Matter appears darker than Grey Matter.
 
-Proton Density (PD):
-High signal overall; excellent anatomical detail to distinguish WM/GM boundaries with minimal liquid/fat distortion.
+* Proton Density (PD):
+- High signal overall; excellent anatomical detail to distinguish WM/GM boundaries with minimal liquid/fat distortion.
 
 2. Knee & Musculoskeletal MRI
-T1-Weighted: Subcutaneous and marrow fat are bright; cortical bone and ligamentous structures are dark; joint fluid is dark. Ideal for structural anatomy and bone marrow replacement.
-T2-Weighted: Joint fluid / effusion is bright white; muscle and meniscus are intermediate to dark. Ideal for highlighting fluid/edema (pathology).
-T2*-Weighted (Gradient Echo): Highly sensitive to susceptibility artifacts (e.g., microbleeds, iron deposits, joint hardware).
+* T1-Weighted: Subcutaneous and marrow fat are bright; cortical bone and ligamentous structures are dark; joint fluid is dark. Ideal for structural anatomy and bone marrow replacement.
+* T2-Weighted: Joint fluid / effusion is bright white; muscle and meniscus are intermediate to dark. Ideal for highlighting fluid/edema (pathology).
+* T2*-Weighted (Gradient Echo): Highly sensitive to susceptibility artifacts (e.g., microbleeds, iron deposits, joint hardware).
 
 Extrait de code**Interactive Tissue Inspector (Tool Concept)**
 If you wish to embed an interactive hover tooltip in MyST, you can use Plotly or Altair in Python code blocks.
 
-```python
+`````{code-cell} python
+:tags: [hide-input]  # Optionnel : masque le code par défaut pour ne laisser que la figurepython
 import plotly.express as px
 import pandas as pd
 
