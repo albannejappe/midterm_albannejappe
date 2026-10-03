@@ -8,7 +8,9 @@ kernelspec:
 A ajouter:
 - référence spin bench pour l'animation et schéma des séquences
 - ajout des images interactives: en passant la souris sur une structure ça nous dit ce que c'est, son T1 et T2
-
+- avec l'explication des séquences (TE,TR long court) l'explication du bruit que ça fait dans l'IRM
+- mettre le graphe T1/T2 juste après le tableau avec les valeurs
+- tableau TR TE long court 54 cases)
 
 ## Image Types & Weightings in MRI
 
