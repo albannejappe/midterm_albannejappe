@@ -94,6 +94,7 @@ plt.ylabel("Normalized M_z")
 plt.legend()
 plt.grid(True, alpha=0.3)
 plt.show()
+```
 
 ## Some Examples & Visual Analysis
 
@@ -138,6 +139,7 @@ fig = px.scatter(
 )
 fig.update_traces(textposition='top center', marker=dict(size=12))
 fig.show()
+```
 
 ---
 
