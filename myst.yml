@@ -66,7 +66,7 @@ project:
     - file: 01-image_types.md
     - file: 02-T2_T2star.md
     #- file: 01-getting-started.md
-    #- file: 02-interactive-figures.md
+    - file: 02-interactive-figures.md
     # Notebooks must appear in the toc for MyST to build (and execute) them --
     # otherwise `:::{figure} #label` has nothing to embed and silently renders empty.
     # `hidden: true` keeps it built and referenceable without publishing it as a
