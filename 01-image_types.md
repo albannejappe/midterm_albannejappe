@@ -1,13 +1,9 @@
 ---
-title: Image types: T1, T2, T2*, PD
+title: 'Image types: T1, T2, T2*, PD'
 kernelspec:
   name: base
   display_name: Python 3
 ---
-
-## What are T1 and T2 ?
-def T1, T2
-tableau types de tissu et T1, T2 long, mid, court
 
 ## Which parameters influence the image type (weight) ?
 explication des différentes séquences (spin echo, gradient echo, theta...) qui donnent chaque type d'image
@@ -24,7 +20,7 @@ tableau recap TE/TR
 
 # Image Types & Weightings in MRI
 
-In Magnetic Resonance Imaging (MRI), contrast between tissues is primarily determined by intrinsic magnetic relaxation properties (**T1**, **T2**, and **T2*** times) and proton density (**PD**). By adjusting scanner parameters such as Time to Echo ($TE$), Repetition Time ($TR$), and flip angle ($\theta$), we can "weight" the image toward a specific physical property.
+In Magnetic Resonance Imaging (MRI), contrast between tissues is primarily determined by intrinsic magnetic relaxation properties (**T1**, **T2**, and **T2*** times) and proton density (**PD**). By adjusting scanner parameters such as Echo Time ($TE$), Repetition Time ($TR$), and flip angle ($\theta$), we can "weight" the image toward a specific physical property.
 
 ---
 
@@ -32,11 +28,16 @@ In Magnetic Resonance Imaging (MRI), contrast between tissues is primarily deter
 
 ### Fundamental Definitions
 
-* **T1 Relaxation (Spin-Lattice / Longitudinal Relaxation):** The process by which the longitudinal magnetization ($M_z$) recovers back to its thermal equilibrium value ($M_0$) along the main magnetic field ($B_0$). $T_1$ is defined as the time required for $M_z$ to recover to approximately **63%** of $M_0$.
-* **T2 Relaxation (Spin-Spin / Transverse Relaxation):** The process by which transverse magnetization ($M_{xy}$) decays due to spin phase coherence loss caused by microscopic magnetic interactions between neighboring nuclei. $T_2$ is defined as the time required for $M_{xy}$ to drop to **37%** of its initial magnitude.
-* **T2* Relaxation:** Transverse decay caused by a combination of pure $T_2$ spin-spin relaxation **plus magnetic field inhomogeneities** ($\Delta B_0$). Always shorter than $T_2$ ($T_2^* < T_2$).
+T1 and T2 are intrinsic properties of materials and tissues. They are times expressed in milliseconds and are based on relaxation times following a B1 excitation.
 
-$$M_z(t) = M_0 \left(1 - e^{-t / T_1}\right) \quad \text{and} \quad M_{xy}(t) = M_0 e^{-t / T_2}$$
+* **T1 Relaxation (Spin-Lattice / Longitudinal Relaxation):** The process by which the longitudinal magnetization ($M_z$) recovers back to its thermal equilibrium value ($M_0$) along the main magnetic field ($B_0$). $T_1$ is defined as the time required for $M_z$ to recover to approximately **63%** of $M_0$.
+
+$$M_z(t) = M_0 \left(1 - e^{-t / T_1}\right)$$
+
+* **T2 Relaxation (Spin-Spin / Transverse Relaxation):** The process by which transverse magnetization ($M_{xy}$) decays due to spin phase coherence loss caused by microscopic magnetic interactions between neighboring nuclei. $T_2$ is defined as the time required for $M_{xy}$ to drop to **37%** of its initial magnitude.
+<!--* **T2* Relaxation:** Transverse decay caused by a combination of pure $T_2$ spin-spin relaxation **plus magnetic field inhomogeneities** ($\Delta B_0$). Always shorter than $T_2$ ($T_2^* < T_2$). -->
+
+$$M_{xy}(t) = M_0 e^{-t / T_2}$$
 
 ### Relaxation Times Across Human Tissues ($B_0 = 1.5\text{ T}$)
 
@@ -95,3 +96,59 @@ plt.ylabel("Normalized M_z")
 plt.legend()
 plt.grid(True, alpha=0.3)
 plt.show()
+
+## Some Examples & Visual Analysis
+
+Visual identification of weighting relies on checking high-signal (bright) vs. low-signal (dark) reference tissues rather than looking at scanner headers alone.
+
+1. Brain MRIT1-Weighted:
+CSF appears dark (very long $T_1$, slow signal recovery).
+White Matter appears bright (short $T_1$, rapid recovery due to myelin fat).
+Grey Matter is intermediate (darker than WM).
+
+T2-Weighted:
+CSF appears hyperintense (bright) (long $T_2$, slow transverse signal decay).
+White Matter appears darker than Grey Matter.
+
+Proton Density (PD):
+High signal overall; excellent anatomical detail to distinguish WM/GM boundaries with minimal liquid/fat distortion.
+
+2. Knee & Musculoskeletal MRI
+T1-Weighted: Subcutaneous and marrow fat are bright; cortical bone and ligamentous structures are dark; joint fluid is dark. Ideal for structural anatomy and bone marrow replacement.
+T2-Weighted: Joint fluid / effusion is bright white; muscle and meniscus are intermediate to dark. Ideal for highlighting fluid/edema (pathology).
+T2*-Weighted (Gradient Echo): Highly sensitive to susceptibility artifacts (e.g., microbleeds, iron deposits, joint hardware).
+
+Extrait de code**Interactive Tissue Inspector (Tool Concept)**
+If you wish to embed an interactive hover tooltip in MyST, you can use Plotly or Altair in Python code blocks.
+
+```python
+import plotly.express as px
+import pandas as pd
+
+# Data for interactive plot
+data = pd.DataFrame({
+    'Tissue': ['Fat', 'White Matter', 'Grey Matter', 'Muscle', 'CSF'],
+    'T1_ms': [260, 750, 1000, 900, 4000],
+    'T2_ms': [70, 75, 95, 45, 2000],
+    'Category': ['Lipid', 'Brain', 'Brain', 'Soft Tissue', 'Fluid']
+})
+
+fig = px.scatter(
+    data, x='T1_ms', y='T2_ms', text='Tissue', color='Category',
+    hover_data=['T1_ms', 'T2_ms'],
+    title="Interactive Tissue Relaxation Profile (Hover over points)"
+)
+fig.update_traces(textposition='top center', marker=dict(size=12))
+fig.show()
+
+---
+
+## Recap Table
+
+| Weighting | Repetition Time ($TR$) | Echo Time ($TE$) | Flip Angle ($\theta$) | Primary Bright Structures | Key Application |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **T1w (SE)** | Short ($< 800\text{ ms}$) | Short ($< 30\text{ ms}$) | $90^\circ$ | Fat, Subcutaneous tissue, Gadolinium contrast | Normal anatomical mapping |
+| **T2w (SE)** | Long ($> 2000\text{ ms}$) | Long ($> 80\text{ ms}$) | $90^\circ$ | Water, CSF, Edema, Cysts | Fluid/Pathology detection |
+| **PDw (SE)** | Long ($> 2000\text{ ms}$) | Short ($< 30\text{ ms}$) | $90^\circ$ | Tissues with high hydrogen proton concentration | Cartilage & joint assessment |
+| **T2*w (GRE)**| Variable | Long / Medium | Small ($10^\circ - 30^\circ$) | Venous blood, Hemorrhage, Calcification | Microbleed & iron detection |
+
