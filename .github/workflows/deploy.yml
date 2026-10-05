@@ -162,7 +162,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: book-pdf
-          path: exports/*.pdf
-          # `error`, not `warn`: a missing PDF should be visible. The job is
-          # continue-on-error, so this still never blocks the website deploy.
+          path: |
+            _build/exports/*.pdf
+            exports/*.pdf
           if-no-files-found: error
