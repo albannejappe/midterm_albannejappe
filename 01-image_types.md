@@ -244,6 +244,7 @@ Look closely at the three brain MRI slices shown above. Can you identify the wei
 2. **T2-weighted:** CSF is bright, whereas White Matter (WM) and Grey Matter (GM) are darker.
 3. **PD-weighted:** The overall image is flat with high overall signal intensity and subtle GM/WM contrast.
 ::::
+
 :::
 
 ---
@@ -280,6 +281,7 @@ B. **T2-weighted:** Joint fluid is bright whereas muscles are very dark.
 C. **T1-weighted:** Fat is bright whereas joint fluid is dark, it cannot be distinguished from muscle.
 D. **PD-weighted:** The overall image is flat with low overall signal intensity.
 ::::
+
 :::
 
 ---
