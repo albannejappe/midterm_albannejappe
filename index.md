@@ -40,7 +40,7 @@ Explore the fundamental definitions of $T_1$ and $T_2$ relaxation times across h
 * **Acoustic Signatures:** Listen to the sound of SE acquisitions.
 * **Interactive Inspector:** Explore tissue relaxation values in real time.
 
-```{button-link} 01-image_types.html
+```{button-ref} 01-image_types
 :color: primary
 :outline:
 Read Chapter 1
@@ -61,7 +61,7 @@ Dive deep into spin dephasing, magnetic field inhomogeneities, and Gradient Echo
 - Interactive Simulations: Python modeling of spin dephasing.
 
 
-```{button-link} 02-T2_T2star.html
+```{button-ref} 02-T2_T2star
 :color: primary
 :outline:
 Read Chapter 2
