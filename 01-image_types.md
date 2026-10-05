@@ -21,6 +21,35 @@ T1 and T2 are intrinsic properties of materials and tissues. They are times expr
 
 $$M_z(t) = M_0 \left(1 - e^{-t / T_1}\right)$$
 
+```{code-cell} python
+:tags: [hide-input]
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Interactive calculation / plot of T1 Recovery curves in Jupyter / MyST
+tr_range = np.linspace(0, 3000, 500)
+t1_fat = 260
+t1_wm = 750
+t1_gm = 1000
+t1_csf = 3000
+
+plt.figure(figsize=(8, 4))
+plt.plot(tr_range, 1 - np.exp(-tr_range / t1_fat), label='Fat (Short T1)', color='orange')
+plt.plot(tr_range, 1 - np.exp(-tr_range / t1_wm), label='White Matter', color='gray')
+plt.plot(tr_range, 1 - np.exp(-tr_range / t1_gm), label='Grey Matter', color='brown')
+plt.plot(tr_range, 1 - np.exp(-tr_range / t1_csf), label='CSF (Long T1)', color='blue')
+
+plt.axvline(x=500, color='red', linestyle='--', label='Short TR (~500ms) - T1 Contrast')
+plt.title("Longitudinal Magnetization Recovery (T1)")
+plt.xlabel("TR (ms)")
+plt.ylabel("Normalized M_z")
+plt.legend()
+plt.grid(True, alpha=0.3)
+plt.show()
+```
+The curve models $M_z(t) = 1 - e^{-TR / T_1}$. At short $TR$ ($\sim 500\text{ ms}$), fat has recovered nearly all its longitudinal magnetization ($M_z \approx 0.85$), whereas CSF has barely recovered ($M_z \approx 0.15$). This vast signal difference creates high **$T_1$ contrast**.
+
 * **T2 Relaxation (Spin-Spin / Transverse Relaxation):** The process by which transverse magnetization ($M_{xy}$) decays due to spin phase coherence loss caused by microscopic magnetic interactions between neighboring nuclei. $T_2$ is defined as the time required for $M_{xy}$ to drop to **37%** of its initial magnitude.
 
 $$M_{xy}(t) = M_0 e^{-t / T_2}$$
@@ -178,42 +207,11 @@ Both figures of SE and GE sequences come from Peder Larson online course {cite:p
 By eliminating the 180° pulse and rapidly reversing gradient polarities at ultra-short TRs, Gradient Echo sequences generate a continuous, high-pitched hum or buzzing sound.
 ```
 
-```{code-cell} python
-:tags: [hide-input]
-
-import numpy as np
-import matplotlib.pyplot as plt
-
-# Interactive calculation / plot of T1 Recovery curves in Jupyter / MyST
-tr_range = np.linspace(0, 3000, 500)
-t1_fat = 260
-t1_wm = 750
-t1_gm = 1000
-t1_csf = 3000
-
-plt.figure(figsize=(8, 4))
-plt.plot(tr_range, 1 - np.exp(-tr_range / t1_fat), label='Fat (Short T1)', color='orange')
-plt.plot(tr_range, 1 - np.exp(-tr_range / t1_wm), label='White Matter', color='gray')
-plt.plot(tr_range, 1 - np.exp(-tr_range / t1_gm), label='Grey Matter', color='brown')
-plt.plot(tr_range, 1 - np.exp(-tr_range / t1_csf), label='CSF (Long T1)', color='blue')
-
-plt.axvline(x=500, color='red', linestyle='--', label='Short TR (~500ms) - T1 Contrast')
-plt.title("Longitudinal Magnetization Recovery (T1)")
-plt.xlabel("TR (ms)")
-plt.ylabel("Normalized M_z")
-plt.legend()
-plt.grid(True, alpha=0.3)
-plt.show()
-```
-The curve models $M_z(t) = 1 - e^{-TR / T_1}$. At short $TR$ ($\sim 500\text{ ms}$), fat has recovered nearly all its longitudinal magnetization ($M_z \approx 0.85$), whereas CSF has barely recovered ($M_z \approx 0.15$). This vast signal difference creates high **$T_1$ contrast**.
-
 ## Some Examples & Visual Analysis
 
 Visual identification of weighting relies on evaluating **high-signal (bright)** versus **low-signal (dark)** reference structures rather than solely trusting scanner DICOM headers.
 
----
-
-### 1. Brain MRI Signal Characteristics
+### Brain MRI Signal Characteristics
 
 | Weighting | Key Reference Tissue Appearances | Primary Diagnostic Value |
 | :--- | :--- | :--- |
@@ -243,21 +241,13 @@ Look closely at the three brain MRI slices shown above. Can you identify the wei
 
 ---
 
-### 2. Knee & Musculoskeletal (MSK) MRI
+### Knee & Musculoskeletal (MSK) MRI
 
-#### T1-Weighted (T1w)
-* **Bright (Hyperintense):** Subcutaneous fat, yellow bone marrow.
-* **Dark (Hypointense):** Cortical bone, ligaments, tendons, joint fluid.
-* **Clinical Application:** Ideal for evaluation of structural anatomy and bone marrow replacement.
-
-#### T2-Weighted (T2w)
-* **Bright (Hyperintense):** Joint fluid, synovial effusion, tissue edema.
-* **Dark (Hypointense):** Skeletal muscle, fibrocartilage, menisci.
-* **Clinical Application:** Primary sequence for highlighting fluid accumulation and soft-tissue edema.
-
-#### T2*-Weighted (Gradient Echo / GRE)
-* **Signal Characteristics:** Highly sensitive to magnetic susceptibility variations.
-* **Clinical Application:** Detects microbleeds, iron deposits, calcifications, and hardware-related artifacts (blooming effect).
+| Weighting | Key Reference Tissue Appearances | Primary Diagnostic Value |
+| :--- | :--- | :--- |
+| **T1-Weighted (T1w)** | • **CSF:** Dark / Hypointense (very long $T_1$, slow recovery)<br>• **White Matter:** Bright / Hyperintense (short $T_1$ due to myelin fat)<br>• **Grey Matter:** Intermediate (darker than WM) | Anatomical detail, cortical mapping |
+| **T2-Weighted (T2w)** | • **CSF:** Bright / Hyperintense (long $T_2$, slow transverse decay)<br>• **White Matter:** Darker than Grey Matter<br>• **Grey Matter:** Intermediate to Bright | Fluid detection, edema, pathology |
+| **Proton Density (PD)** | • **Overall:** High signal intensity throughout<br>• **GM / WM:** High contrast for anatomical boundary definition | WM/GM differentiation without liquid/fat distortion |
 
 :::{figure} images/knee.png
 :label: fig-knee
@@ -286,9 +276,10 @@ D. **PD-weighted:** The overall image is flat with low overall signal intensity.
 
 By choosing the TE, TR and flip angle values in our pulse sequences and the relationships described above, we can create images that are “weighted” by the MR properties of $T_1$, $T_2$, and proton density.
 
-| | Short TE | Long TE|
-| Short TR | T1-weighted | Not used |
-| Long TR |  PD-wweighted | T2/T2*-weighted|
+| | Short TE | Long TE |
+| :--- | :--- | :--- |
+| **Short TR** | T1-weighted | Not used |
+| **Long TR** | PD-weighted | T2 / T2*-weighted |
 
 Here is a table recapitulating the different characteristics of each image type:
 
