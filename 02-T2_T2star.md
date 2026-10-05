@@ -5,9 +5,6 @@ kernelspec:
   display_name: Python 3
 ---
 
-A ajouter:
-- page d'intro + conclusion
-
 
 # T2 and T2* Relaxation Physics
 
