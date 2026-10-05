@@ -1,36 +1,78 @@
 ---
-title: My MyST Book
-description: An interactive book built with MyST
+title: "Welcome to MRI Physics: Pulse Sequences & Contrast Mechanisms"
+kernelspec:
+  name: python3
+  display_name: Python 3
 ---
 
-:::{tip} Start here
-This is a template. Replace this page, and the chapters listed in the sidebar, with
-your own content.
+# Magnetic Resonance Imaging: Fundamentals of Image Contrast
 
-Your first job is simply to get it **published**: use this template, enable GitHub
-Pages once, and let the Action build your site. Then start writing.
+Welcome to this interactive **MyST Book** dedicated to understanding the core physical principles governing contrast generation in Magnetic Resonance Imaging (MRI).
+
+This digital notebook combines theoretical physics, clinical application, audio signatures, and interactive Python simulations to provide a clear intuition of how tissue properties ($T_1$, $T_2$, $T_2^*$, and $PD$) and sequence timing ($TR$, $TE$, flip angle $\theta$) interact to create medical images.
+
+---
+
+## 🎯 Learning Objectives
+
+By exploring this book, you will learn to:
+
+1. **Understand Physical Relaxation Mechanisms:** Distinguish between longitudinal recovery ($T_1$), true transverse decay ($T_2$), and effective transverse decay ($T_2^*$).
+2. **Master Sequence Timing:** Predict how adjusting **Repetition Time ($TR$)** and **Echo Time ($TE$)** alters image weighting in Spin Echo (SE) and Gradient Echo (GRE) sequences.
+3. **Recognize Tissue Signatures:** Visually identify brain and musculoskeletal tissue appearances across $T_1$-weighted, $T_2$-weighted, and Proton Density-weighted scans.
+4. **Identify Acoustic & Susceptibility Effects:** Connect the physics of gradient switching to sequence noise and understand susceptibility artifacts in clinical MRI and fMRI.
+
+---
+
+## 📚 Book Structure & Table of Contents
+
+::::{grid} 1 1 2 2
+:gutter: 3
+
+:::{grid-item-card} 🧠 Chapter 1: Image Types & Weightings
+:class-header: bg-light
+
+Explore the fundamental definitions of $T_1$ and $T_2$ relaxation times across human tissues.
+
+* **Definitions & Molecular Physics:** Why $T_1 > T_2$.
+* **Sequence Parameters:** How $TR$ and $TE$ control weighting.
+* **Visual Identification:** Brain and Knee MRI comparisons.
+* **Acoustic Signatures:** Listen to the sound of SE acquisitions.
+* **Interactive Inspector:** Explore tissue relaxation values in real time.
+
+```{button-link} 01-image_types.html
+:color: primary
+:outline:
+Read Chapter 1
+
 :::
 
-## About this book
+:::{grid-item-card} 💫 Chapter 2: T2 and T2* Relaxation
+:class-header: bg-light
 
-**TODO:** replace this with a paragraph about what your book covers.
+Dive deep into spin dephasing, magnetic field inhomogeneities, and Gradient Echo sequences.
 
-Built with [MyST Markdown](https://mystmd.org): Markdown for the prose, Jupyter
-notebooks for the computation, one `myst.yml` for the configuration, and a GitHub
-Action that rebuilds and republishes on every push.
+- What is T2?:* Reversible vs. irreversible transverse decay.
 
-## Why interactive?
+- Clinical Applications: Susceptibility artifacts, microbleeds, and fMRI BOLD.
 
-A static figure is one parameter choice out of infinitely many, frozen at publication.
-The author explored a whole parameter space; the reader gets one frame of it.
+- The T2 Song:* Educational music video integration and physics breakdown.
 
-An interactive figure hands that space back. It costs almost nothing to add, and it
-often explains in three seconds what a paragraph of caption cannot.
+- Interactive Simulations: Python modeling of spin dephasing.
 
-## What's here
 
-- [](./01-getting-started.md) — how to build, publish and debug this book
-- [](./02-interactive-figures.md) — the interactive figure pattern, with a worked example
+:color: primary
+:outline:
+Read Chapter 2
 
-Add your own pages by creating a `.md` file and listing it in the `toc` section of
-`myst.yml`.
+:::
+::::
+
+
+:::{admonition} How to Navigate this Book
+
+- Interactive Figures: You can hover over data points in Python plots to view detailed tissue values.
+
+- Code Blocks: Click on "Show code" tags to inspect the Python scripts generating the mathematical curves.
+
+:::
