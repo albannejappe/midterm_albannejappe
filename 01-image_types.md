@@ -225,8 +225,7 @@ Visual identification of weighting relies on evaluating **high-signal (bright)**
 Brain MRI weighting comparison. Source: {cite:p}`Preston2006`
 :::
 
-```{admonition} Quick Quiz: Image Weighting Identification
-:class: question
+```{note} Quick Quiz: Image Weighting Identification
 
 Look closely at the three brain MRI slices shown above. Can you identify the weighting of each image (**T1**, **T2**, or **PD**)?
 
@@ -254,8 +253,7 @@ Look closely at the three brain MRI slices shown above. Can you identify the wei
 Knee MRI weighting comparison. Source: {cite:p}`Alrashedan2023`
 :::
 
-```{admonition} Quick Quiz: Image Weighting Identification
-:class: question
+```{note} Quick Quiz: Image Weighting Identification
 
 Look closely at the three brain MRI slices shown above. Can you identify the weighting of each image (**T1** (twice), **T2**, or **PD**)?
 
