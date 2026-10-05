@@ -1,4 +1,4 @@
----
+<img width="554" height="554" alt="image" src="https://github.com/user-attachments/assets/d042f078-7604-417c-aea4-b5c1281f6c26" />---
 title: T2 and T2*
 kernelspec:
   name: python3
@@ -6,10 +6,8 @@ kernelspec:
 ---
 
 A ajouter:
-- exemples des artefacts causés par T2*
+- ajouter les sources des images dans la biblio
 - page d'intro + conclusion
-- ref image T2* decay : Toffanin, Renato & Guglielmi, Giuseppe & Cova, Maria. (2011). Fast MRI Methods for the Clinical Evaluation of Skeletal Disorders. 10.5772/30145.
-- enlever la courbe image (le graphe c'est la meme chose)
 
 
 # T2 and T2* Relaxation Physics
@@ -37,20 +35,31 @@ Since $T_{2,\text{inhom}} > 0$, $T_2^*$ is always significantly shorter than $T_
 
 ### How T2* Influences Real MRI Images
 
-* **Gradient Echo (GRE) Sensitivity:** GRE sequences lack a 180° refocusing pulse, making them directly weighted by $T_2^*$ rather than $T_2$.
-* **Susceptibility Artifacts:** Tissues with iron, blood breakdown products (hemosiderin, deoxyhemoglobin), or interfaces between air and tissue create localized magnetic field gradients, causing fast signal loss ("blooming artifacts").
-* **Functional MRI (fMRI):** Blood Oxygen Level Dependent (BOLD) fMRI relies entirely on local $T_2^*$ changes caused by paramagnetism in blood flow.
+* **Gradient Echo (GE) Sensitivity:** GE sequences lack a 180° refocusing pulse, making them directly weighted by $T_2^*$ rather than $T_2$.
 
-:::{figure} images/T2_T2star.png
-:label: fig-t2-decay
-Diagram showing T2 and T2* decay curves over time
+:::{figure} images/T2star_decay_GE.jpeg
+:label: fig-ge-decay
+Gradient Echo T2* signal decay diagram. Source: {cite:p}'MRIquestions'.
 :::
 
----
+* **Susceptibility Artifacts:** Tissues with iron, blood breakdown products (hemosiderin, deoxyhemoglobin), or interfaces between air and tissue create localized magnetic field gradients, causing fast signal loss ("blooming artifacts").
+
+:::{figure} images/blooming.jpeg
+:label: fig-blooming
+Microbleeds susceptibility artifacts on GRE MRI. Source: {cite:p}'Radiopedia'
+:::
+
+* **Functional MRI (fMRI):** Blood Oxygen Level Dependent (BOLD) fMRI relies entirely on local $T_2^*$ changes caused by paramagnetism in blood flow.
+
+:::{figure} images/fMRI.jpeg
+:label: fig-fmri-bold
+fMRI BOLD activation map. Source: {cite:p}'Griebe2014'
+:::
 
 ### Interactive Python Simulation: $T_2$ vs $T_2^*$ Signal Decay
 
 ```{code-cell} python
+:tags: [hide-input]
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -83,6 +92,8 @@ plt.show()
 ```
 The curve models a signal loss using $M_{xy}(t) = M_0 e^{-t/T_2^{(*)}}$. The dashed red curve ($T_2^*$) drops below the 37% signal mark significantly faster than the solid blue curve ($T_2$), demonstrating why Gradient Echo acquisitions require much shorter Echo Times ($TE$).
 
+---
+
 ### The $T_2^*$ Song: "Twinkle, Twinkle, $T_2^*$"
 
 To help memorize the physical concepts governing spin dephasing and magnetic field inhomogeneity, listen to this scientific adaptation of Twinkle, Twinkle, Little Star written by Greg Crowther and performed by Science Groove.
@@ -106,6 +117,8 @@ The song cleverly transforms a complex physical concept into an effective musica
 This Python snippet models how individual spin vectors spread out in phase over time under fixed field inhomogeneities, reproducing the physical process described in the song.
 
 ```{code-cell} python
+:tags: [hide-input]
+
 import numpy as np
 import matplotlib.pyplot as plt
 
