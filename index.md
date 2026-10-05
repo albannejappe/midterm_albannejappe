@@ -44,7 +44,7 @@ Explore the fundamental definitions of $T_1$ and $T_2$ relaxation times across h
 :color: primary
 :outline:
 Read Chapter 1
-
+```
 :::
 
 :::{grid-item-card} 💫 Chapter 2: T2 and T2* Relaxation
@@ -61,10 +61,11 @@ Dive deep into spin dephasing, magnetic field inhomogeneities, and Gradient Echo
 - Interactive Simulations: Python modeling of spin dephasing.
 
 
+```{button-link} 02-T2_T2star.html
 :color: primary
 :outline:
 Read Chapter 2
-
+```
 :::
 ::::
 
