@@ -52,11 +52,11 @@ Read Chapter 1
 
 Dive deep into spin dephasing, magnetic field inhomogeneities, and Gradient Echo sequences.
 
-- What is T2?:* Reversible vs. irreversible transverse decay.
+- What is T2*: Reversible vs. irreversible transverse decay.
 
 - Clinical Applications: Susceptibility artifacts, microbleeds, and fMRI BOLD.
 
-- The T2 Song:* Educational music video integration and physics breakdown.
+- The T2* Song: Educational music video integration and physics breakdown.
 
 - Interactive Simulations: Python modeling of spin dephasing.
 
