@@ -153,9 +153,9 @@ Spin Echo sequence - T2 contrast
 ```{note}
 **Acoustic Signature of SE Sequence**
 
-:::{figure} audio/MRI_FSE.mp3
-:label: audio_SE
-:::
+<audio controls>
+  <source src="audio/MRI_FSE.mp3" type="audio/mpeg">
+</audio>
 
 Spin Echo sequences use a 180° refocusing pulse, producing a rhythmic, mechanical knocking sound whose repetition rate varies with the chosen TR.
 ```
