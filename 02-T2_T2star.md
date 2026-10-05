@@ -1,4 +1,4 @@
-<img width="554" height="554" alt="image" src="https://github.com/user-attachments/assets/d042f078-7604-417c-aea4-b5c1281f6c26" />---
+---
 title: T2 and T2*
 kernelspec:
   name: python3
@@ -6,7 +6,6 @@ kernelspec:
 ---
 
 A ajouter:
-- ajouter les sources des images dans la biblio
 - page d'intro + conclusion
 
 
@@ -98,7 +97,7 @@ The curve models a signal loss using $M_{xy}(t) = M_0 e^{-t/T_2^{(*)}}$. The das
 
 To help memorize the physical concepts governing spin dephasing and magnetic field inhomogeneity, listen to this scientific adaptation of Twinkle, Twinkle, Little Star written by Greg Crowther and performed by Science Groove.
 
-```{youtube} [https://www.youtube.com/watch?v=uu7Ph25EhLQ](https://www.youtube.com/watch?v=uu7Ph25EhLQ)```
+[![Twinkle, Twinkle (song by Science Groove)](https://img.youtube.com/vi/uu7Ph25EhLQ/0.jpg)](https://www.youtube.com/watch?v=uu7Ph25EhLQ)
 
 # Song Performance
 Lyrics & Physics Breakdown
