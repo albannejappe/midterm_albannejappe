@@ -13,7 +13,7 @@ This digital notebook combines theoretical physics, clinical application, audio 
 
 ---
 
-## 🎯 Learning Objectives
+## Learning Objectives
 
 By exploring this book, you will learn to:
 
@@ -24,12 +24,12 @@ By exploring this book, you will learn to:
 
 ---
 
-## 📚 Book Structure & Table of Contents
+## Book Structure & Table of Contents
 
 ::::{grid} 1 1 2 2
 :gutter: 3
 
-:::{grid-item-card} 🧠 Chapter 1: Image Types & Weightings
+:::{grid-item-card} Chapter 1: Image Types & Weightings
 :class-header: bg-light
 
 Explore the fundamental definitions of $T_1$ and $T_2$ relaxation times across human tissues.
@@ -39,15 +39,9 @@ Explore the fundamental definitions of $T_1$ and $T_2$ relaxation times across h
 * **Visual Identification:** Brain and Knee MRI comparisons.
 * **Acoustic Signatures:** Listen to the sound of SE acquisitions.
 * **Interactive Inspector:** Explore tissue relaxation values in real time.
-
-```{button-ref} 01-image_types
-:color: primary
-:outline:
-Read Chapter 1
-```
 :::
 
-:::{grid-item-card} 💫 Chapter 2: T2 and T2* Relaxation
+:::{grid-item-card} Chapter 2: T2 and T2* Relaxation
 :class-header: bg-light
 
 Dive deep into spin dephasing, magnetic field inhomogeneities, and Gradient Echo sequences.
@@ -59,13 +53,6 @@ Dive deep into spin dephasing, magnetic field inhomogeneities, and Gradient Echo
 - The T2* Song: Educational music video integration and physics breakdown.
 
 - Interactive Simulations: Python modeling of spin dephasing.
-
-
-```{button-ref} 02-T2_T2star
-:color: primary
-:outline:
-Read Chapter 2
-```
 :::
 ::::
 
