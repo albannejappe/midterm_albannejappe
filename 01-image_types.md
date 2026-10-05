@@ -224,7 +224,7 @@ Visual identification of weighting relies on evaluating **high-signal (bright)**
 
 :::{figure} images/brain.png
 :label: fig-brain
-Brain MRI weighting comparison
+Brain MRI weighting comparison. Source: {cite:p}`Preston2006`
 :::
 
 ```{admonition} Quick Quiz: Image Weighting Identification
@@ -234,7 +234,9 @@ Look closely at the three brain MRI slices shown above. Can you identify the wei
 
 ::::{dropdown} Click to reveal answers
 1. **T1-weighted:** CSF is dark, whereas White Matter (WM) and Grey Matter (GM) are lighter.
+
 2. **T2-weighted:** CSF is bright, whereas White Matter (WM) and Grey Matter (GM) are darker.
+
 3. **PD-weighted:** The overall image is flat with high overall signal intensity and subtle GM/WM contrast.
 ::::
 ```
@@ -259,7 +261,7 @@ Look closely at the three brain MRI slices shown above. Can you identify the wei
 
 :::{figure} images/knee.png
 :label: fig-knee
-Knee MRI weighting comparison
+Knee MRI weighting comparison. Source: {cite:p}`Alrashedan2023`
 :::
 
 ```{admonition} Quick Quiz: Image Weighting Identification
@@ -269,8 +271,11 @@ Look closely at the three brain MRI slices shown above. Can you identify the wei
 
 ::::{dropdown} Click to reveal answers
 A. **T1-weighted:** Fat is bright whereas joint fluid is dark, it cannot be distinguished from muscle.
+
 B. **T2-weighted:** Joint fluid is bright whereas muscles are very dark.
+
 C. **T1-weighted:** Fat is bright whereas joint fluid is dark, it cannot be distinguished from muscle.
+
 D. **PD-weighted:** The overall image is flat with low overall signal intensity.
 ::::
 ```
