@@ -32,6 +32,28 @@ project:
     DFT: Discrete Fourier Transform
     SNR: Signal-to-noise ratio
     CSF: Cerebrospinal fluid
+    WM: White Matter
+    GM: Grey Matter
+    RF: Radiofrequency
+    NMR: Nuclear Magnetic Resonance
+    PD: Proton Density
+    PDw: Proton Density-Weighted
+    T1: Longitudinal Relaxation Time
+    T1w: T1-Weighted
+    T2: Transverse Relaxation Time (Spin-Spin)
+    T2w: T2-Weighted
+    T2*: Effective Transverse Relaxation Time
+    T2*w: T2*-Weighted
+    B0: Main Static Magnetic Field
+    Mz: Longitudinal Magnetization
+    Mxy: Transverse Magnetization
+    M0: Thermal Equilibrium Magnetization
+    SE: Spin Echo
+    GE: Gradient Echo
+    fMRI: Functional Magnetic Resonance Imaging
+    BOLD: Blood Oxygen Level Dependent
+    EPI: Echo Planar Imaging
+    UTE: Ultra-short Echo Time
 
   bibliography:
     - bibliography/references.bib
@@ -66,7 +88,7 @@ project:
     - file: 01-image_types.md
     - file: 02-T2_T2star.md
     #- file: 01-getting-started.md
-    - file: 02-interactive-figures.md
+    #- file: 02-interactive-figures.md
     # Notebooks must appear in the toc for MyST to build (and execute) them --
     # otherwise `:::{figure} #label` has nothing to embed and silently renders empty.
     # `hidden: true` keeps it built and referenceable without publishing it as a
