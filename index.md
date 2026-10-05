@@ -46,13 +46,10 @@ Explore the fundamental definitions of $T_1$ and $T_2$ relaxation times across h
 
 Dive deep into spin dephasing, magnetic field inhomogeneities, and Gradient Echo sequences.
 
-- What is T2*: Reversible vs. irreversible transverse decay.
-
-- Clinical Applications: Susceptibility artifacts, microbleeds, and fMRI BOLD.
-
-- The T2* Song: Educational music video integration and physics breakdown.
-
-- Interactive Simulations: Python modeling of spin dephasing.
+* **What is $T2*$:** Reversible vs. irreversible transverse decay.
+* **Clinical Applications:** Susceptibility artifacts, microbleeds, and fMRI BOLD.
+* **The $T2*$ Song:** Educational music video integration and physics breakdown.
+* **Interactive Simulations:** Python modeling of spin dephasing.
 :::
 ::::
 
