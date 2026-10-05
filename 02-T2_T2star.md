@@ -38,21 +38,21 @@ Since $T_{2,\text{inhom}} > 0$, $T_2^*$ is always significantly shorter than $T_
 
 :::{figure} images/T2star_decay_GE.jpeg
 :label: fig-ge-decay
-Gradient Echo T2* signal decay diagram. Source: {cite:p}'MRIquestions'.
+Gradient Echo T2* signal decay diagram. Source: {cite:p}`MRIquestions`.
 :::
 
 * **Susceptibility Artifacts:** Tissues with iron, blood breakdown products (hemosiderin, deoxyhemoglobin), or interfaces between air and tissue create localized magnetic field gradients, causing fast signal loss ("blooming artifacts").
 
 :::{figure} images/blooming.jpeg
 :label: fig-blooming
-Microbleeds susceptibility artifacts on GRE MRI. Source: {cite:p}'Radiopedia'
+Microbleeds susceptibility artifacts on GRE MRI. Source: {cite:p}`Radiopedia`
 :::
 
 * **Functional MRI (fMRI):** Blood Oxygen Level Dependent (BOLD) fMRI relies entirely on local $T_2^*$ changes caused by paramagnetism in blood flow.
 
 :::{figure} images/fMRI.jpeg
 :label: fig-fmri-bold
-fMRI BOLD activation map. Source: {cite:p}'Griebe2014'
+fMRI BOLD activation map. Source: {cite:p}`Griebe2014`
 :::
 
 ### Interactive Python Simulation: $T_2$ vs $T_2^*$ Signal Decay
